@@ -11,7 +11,7 @@ xf = 1325
 ys = 470
 yf = 968
 
-stag = 10
+stag = 15
 
 # screen region: [576,444],[1325,968]
 # target B value: 195
