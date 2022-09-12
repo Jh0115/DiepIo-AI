@@ -23,14 +23,34 @@ while keyboard.is_pressed('q') == False:
     pic = pyautogui.screenshot(region=(xs,ys,749,524))
     width,height = pic.size
 
-    for x in range(0,width,5):
+    n = 0
+    tarX = [0] * 100 #we assume the number of targetted pixels never exceeds 100
+    tarY = [0] * 100
+    
+    for x in range(0,width,5): #first we scan the picture and save all of the target coordinates
         for y in range(0,height,5):
 
             r,g,b = pic.getpixel((x,y))
             
-            if r>250 and b>170 and g>150:
-                clickScreen((x+xs),(y+ys))
-                time.sleep(0.1)
+            if b==195:
+                tarX[n] = x+xs
+                tarY[n] = y+ys
+                n = n+1
+
+            if keyboard.is_pressed('q') == True: #we have to check q every time or else itll take an entire screen analysis to return to while loop
+                break
+        if keyboard.is_pressed('q') == True:
+                break
+
+    for x in tarX: #then we authorize a click on all targets in a row
+        for y in tarY:
+
+            clickScreen(x,y)
+
+            if tarX[n]==0:
+                break
+            if tarY[n]==0:
+                break
 
             if keyboard.is_pressed('q') == True: #we have to check q every time or else itll take an entire screen analysis to return to while loop
                 break
