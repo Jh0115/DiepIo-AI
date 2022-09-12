@@ -5,9 +5,9 @@ import keyboard
 import random
 import win32api, win32con
 
-time.sleep(1)
-xs = 576
-ys = 444
+time.sleep(3)
+xs = 580
+ys = 470
 
 # screen region: [576,444],[1325,968]
 # target B value: 195
@@ -28,11 +28,11 @@ while keyboard.is_pressed('q') == False:
 
             r,g,b = pic.getpixel((x,y))
             
-            if b==195:
+            if r>250 and b>170 and g>150:
                 clickScreen((x+xs),(y+ys))
                 time.sleep(0.1)
 
-            if keyboard.is_pressed('q') == True:
+            if keyboard.is_pressed('q') == True: #we have to check q every time or else itll take an entire screen analysis to return to while loop
                 break
         if keyboard.is_pressed('q') == True:
                 break
