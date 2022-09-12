@@ -8,7 +8,7 @@ import win32api, win32con
 time.sleep(3)
 xs = 580
 ys = 470
-stag = 15
+stag = 17
 
 # screen region: [576,444],[1325,968]
 # target B value: 195
@@ -51,7 +51,7 @@ while keyboard.is_pressed('q') == False:
             if tarY[n]==0:
                 break
 
-            if pyautogui.pixel(x,y)[0]>250: #before clicking double check the pixel color
+            if pyautogui.pixel(x,y)[0]>220: #before clicking double check the pixel color
                 clickScreen(x,y)
             n = n+1
 
