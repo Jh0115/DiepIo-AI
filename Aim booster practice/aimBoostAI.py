@@ -33,7 +33,7 @@ while keyboard.is_pressed('q') == False:
             
             if r==255: #first check the picture
                 if pyautogui.pixel((x+xs),(y+ys))[0]==255: #double check the actual screen to save time
-                    clickScreen((x+xs),(y+ys)) #authorize clicking the screen
+                    clickScreen((x+xs+2),(y+ys+2)) #authorize clicking the screen, bias the target by a few pixels to better center on target
                     
             if keyboard.is_pressed('q') == True: #we have to check q every time or else itll take an entire screen analysis to return to while loop
                 break
